@@ -1,0 +1,290 @@
+{
+  "name": "DetectiveSmell",
+  "displayName": "DetectiveSmell",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "DetectiveSmell.analyzeProyect",
+          "when": "explorerResourceIsFolder",
+          "group": "DetectiveSmell"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "DetectiveSmell.analyzeProyect",
+        "title": "Analizar proyecto"
+      }
+    ],
+    "configuration": {
+      "title": "DetectiveSmell",
+      "properties": {
+        "DetectiveSmell.selectedRulesSpringBoot": {
+          "type": "array",
+          "default": [
+            "Todos los atributos de las entidades son objetos",
+            "Todas las entidades tienen la anotación @Data",
+            "Todas las clases de lógica tienen la anotación @Service",
+            "Todos los atributos de las clases de lógica tienen la anotación @Autowired",
+            "Todas las clases de controladores tienen la anotación @Controller",
+            "Todas las clases de controladores tienen la anotación @RequestMapping",
+            "Todos los atributos de las clases de controladores tienen la anotación @Autowired",
+            "Todas las clases DTO y DetailDTO tienen la anotación @Data",
+            "Todos los atributos de la clase son serializables",
+            "Todos los métodos de tipo GET deben retornar atributos de tipo DetailDTO"
+          ],
+          "description": "La lista con las reglas a análizar para un proyecto SpringBoot",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Todos los atributos de las entidades son objetos",
+              "Todas las entidades tienen la anotación @Data",
+              "Todas las clases de lógica tienen la anotación @Service",
+              "Todos los atributos de las clases de lógica tienen la anotación @Autowired",
+              "Todas las clases de controladores tienen la anotación @Controller",
+              "Todas las clases de controladores tienen la anotación @RequestMapping",
+              "Todos los atributos de las clases de controladores tienen la anotación @Autowired",
+              "Todas las clases DTO y DetailDTO tienen la anotación @Data",
+              "Todos los atributos de la clase son serializables",
+              "Todos los métodos de tipo GET deben retornar atributos de tipo DetailDTO"
+            ],
+            "description": {
+              "Todos los atributos de las entidades son objetos": "",
+              "Todas las entidades tienen la anotación @Data": "",
+              "Todas las clases de lógica tienen la anotación @Service": "",
+              "Todos los atributos de las clases de lógica tienen la anotación @Autowired": "",
+              "Todas las clases de controladores tienen la anotación @Controller": "",
+              "Todas las clases de controladores tienen la anotación @RequestMapping": "",
+              "Todos los atributos de las clases de controladores tienen la anotación @Autowired": "",
+              "Todas las clases DTO y DetailDTO tienen la anotación @Data": "",
+              "Todos los atributos de la clase son serializables": "",
+              "Todos los métodos de tipo GET deben retornar atributos de tipo DetailDTO": ""
+            }
+          }
+        },
+        "DetectiveSmell.selectA ProjectType": {
+          "type": "string",
+          "default": "SpringBoot",
+          "enum": [
+            "SpringBoot",
+            "Angular",
+            "NextJS"
+          ],
+          "description": "El tipo de proyecto que se va a analizar."
+        },
+        "DetectiveSmell.selectedSeverityRules": {
+          "type": "array",
+          "default": [
+            "Leve",
+            "Moderado",
+            "Grave"
+          ],
+          "description": "La lista con las severidades por regla",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Leve",
+              "Moderado",
+              "Grave"
+            ],
+            "description": {
+              "Leve": "",
+              "Moderado": "",
+              "Grave": ""
+            }
+          }
+        },
+        "DetectiveSmell.selectedLayerRulesSpringBoot": {
+          "type": "array",
+          "default": [
+            "Capa de persistencia",
+            "Capa de lógica",
+            "Capa de controladores"
+          ],
+          "description": "La lista con las capas de categoria por regla",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Capa de persistencia",
+              "Capa de lógica",
+              "Capa de controladores"
+            ],
+            "description": {
+              "Capa de persistencia": "",
+              "Capa de lógica": "",
+              "Capa de controladores": ""
+            }
+          }
+        },
+        "DetectiveSmell.selectedRulesNest": {
+          "type": "array",
+          "default": [
+            "Atributos primitivos",
+            "Anotacion en la clase Entity",
+            "Anotacion en la clase Service",
+            "Anotacion en los atributos de las clases de la lógica",
+            "Anotacion en la clase Controller",
+            "Anotacion de RequestMapping en la clase Controller",
+            "Anotacion en los atributos de las clases de los controladores",
+            "Retorno tipo GET en controladores",
+            "Anotacion de data en DTO y DetailDTO",
+            "Tipo de atributos en las clases DTO y DetailDTO"
+          ],
+          "description": "La lista con las reglas a análizar para un proyecto Nest",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Atributos primitivos",
+              "Anotacion en la clase Entity",
+              "Anotacion en la clase Service",
+              "Anotacion en los atributos de las clases de la lógica",
+              "Anotacion en la clase Controller",
+              "Anotacion de RequestMapping en la clase Controller",
+              "Anotacion en los atributos de las clases de los controladores",
+              "Retorno tipo GET en controladores",
+              "Anotacion de data en DTO y DetailDTO",
+              "Tipo de atributos en las clases DTO y DetailDTO"
+            ],
+            "description": {
+              "Atributos primitivos": "",
+              "Anotacion en la clase Entity": "",
+              "Anotacion en la clase Service": "",
+              "Anotacion en los atributos de las clases de la lógica": "",
+              "Anotacion en la clase Controller": "",
+              "Anotacion de RequestMapping en la clase Controller": "",
+              "Anotacion en los atributos de las clases de los controladores": "",
+              "Retorno tipo GET en controladores": "",
+              "Anotacion de data en DTO y DetailDTO": "",
+              "Tipo de atributos en las clases DTO y DetailDTO": ""
+            }
+          }
+        },
+        "DetectiveSmell.selectedLayerRulesNest": {
+          "type": "array",
+          "default": [
+            "Capa de persistencia",
+            "Capa de lógica",
+            "Capa de controladores",
+            "Capa de DTO"
+          ],
+          "description": "La lista con las capas de categoria por regla",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Capa de persistencia",
+              "Capa de lógica",
+              "Capa de controladores",
+              "Capa de DTO"
+            ],
+            "description": {
+              "Capa de persistencia": "",
+              "Capa de lógica": "",
+              "Capa de controladores": "",
+              "Capa de DTO": ""
+            }
+          }
+        },
+        "DetectiveSmell.selectedRulesAngular": {
+          "type": "array",
+          "default": [
+            "No debería haber servicios ni componentes a nivel de la carpeta 'app' que no sean los propios de 'app'",
+            "Los nombres de las carpetas (módulos) deben coincidir con sus archivos",
+            "Los nombres de los módulos deben estar en singular"
+          ],
+          "description": "La lista con las reglas a análizar para un proyecto Angular",
+          "items": {
+            "type": "string",
+            "enum": [
+              "No debería haber servicios ni componentes a nivel de la carpeta 'app' que no sean los propios de 'app'",
+              "Los nombres de las carpetas (módulos) deben coincidir con sus archivos",
+              "Los nombres de los módulos deben estar en singular"
+            ],
+            "description": {
+              "No debería haber servicios ni componentes a nivel de la carpeta 'app' que no sean los propios de 'app'": "",
+              "Los nombres de las carpetas (módulos) deben coincidir con sus archivos": "",
+              "Los nombres de los módulos deben estar en singular": ""
+            }
+          }
+        },
+        "DetectiveSmell.selectedLayerRulesAngular": {
+          "type": "array",
+          "default": [
+            "Capa de módulos",
+            "Capa de infraestructura"
+          ],
+          "description": "La lista con las capas de categoria por regla",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Capa de módulos",
+              "Capa de infraestructura"
+            ],
+            "description": {
+              "Capa de módulos": "",
+              "Capa de infraestructura": ""
+            }
+          }
+        },
+        "DetectiveSmell.selectedSeverityRulesAngular": {
+          "type": "array",
+          "default": [
+            "Leve",
+            "Moderado",
+            "Grave"
+          ],
+          "description": "La lista con las severidades por regla",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Leve",
+              "Moderado",
+              "Grave"
+            ],
+            "description": {
+              "Leve": "",
+              "Moderado": "",
+              "Grave": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.86.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "ts-morph": "^22.0.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "java-ast": "^0.3.0",
+    "natural": "^7.0.1"
+  }
+}

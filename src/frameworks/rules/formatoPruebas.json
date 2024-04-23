@@ -1,0 +1,86 @@
+{
+
+      "rules": [
+        {
+          "id": "1",
+          "name":"Atributos primitivos",
+          "description": "Todos los atributos de las entidades son objetos (no primitivos). Por ejemplo, se usa Integer en lugar de int o se usa Float en lugar de float",
+          "severity": "Grave",
+          "example":"",
+          "category": "Capa de persistencia" 
+        },
+        {
+          "id": "2",
+          "name":"Anotacion en la clase Entity",
+          "description": "Todas las entidades tienen la anotación @Data de lombok",
+          "severity": "Grave",
+          "example":"@Data <br>@Entity ",
+          "category": "Capa de persistencia"
+        },
+        {
+          "id": "3",
+          "name":"Anotacion en la clase Service",
+          "description": "Todas las clases de la lógica tienen la anotación @Service",
+          "severity": "Grave",
+          "example":"@Service <br> export class AppService {}",
+          "category": "Capa de lógica"
+        },
+        {
+          "id": "4",
+          "name":"Anotacion en los atributos de las clases de la lógica",
+          "description": "Todas las clases de la lógica tienen atributos de la persistencia (Repositories) anotados con @Autowired",
+          "severity": "Grave",
+          "example":"",
+          "category": "Capa de lógica"
+        },
+        {
+          "id": "5",
+          "name":"Anotacion en la clase Controller",
+          "description": "Todas las clases de controladores tienen la anotación @Controller",
+          "severity": "Moderado",
+          "example":"@Service <br> @Controlleer <br> export class AppController {}",
+          "category": "Capa de controladores"
+        },
+        {
+          "id": "6",
+          "name":"Anotacion de RequestMapping en la clase Controller",
+          "description": "Todas las clases de controladores tienen la anotación @RequestMapping",
+          "severity": "Moderado",
+          "example":"@Service <br> @Controlleer <br> export class AppController {}",
+          "category": "Capa de controladores"
+        },
+        {
+          "id": "7",
+          "name":"Anotacion en los atributos de las clases de los controladores",
+          "description": "Todas las clases de controladores tienen atributos de las clases de servicio anotados con @Autowired",
+          "severity": "Grave",
+          "example":"",
+          "category": "Capa de controladores"
+        },
+        {
+          "id": "8",
+          "name":"Retorno tipo GET en controladores",
+          "description": "Todos los métodos de tipo GET deben retornar atributos de tipo DetailDTO",
+          "severity": "Moderado",
+          "example":"",
+          "category": "Capa de controladores"
+        },
+        {
+          "id": "9",
+          "name":"Anotacion de data en DTO y DetailDTO",
+          "description": "Todas las clases DTO y DetailDTO tienen la anotación @Data de Lombok",
+          "severity": "Moderado",
+          "example":"@Data <br>",
+          "category": "Capa de DTO"
+        },
+        {
+          "id": "10",
+          "name":"Tipo de atributos en las clases DTO y DetailDTO",
+          "description": "Todos los atributos de la clase son serializables",
+          "severity": "Moderado",
+          "example":"",
+          "category": "Capa de DTO"
+        }
+      ]         
+  }
+  
