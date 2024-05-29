@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>DetectiveSmell</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/animate.css">
+
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+		<nav class="fh5co-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-2">
+							<div id="fh5co-logo"><a href="index.html">Detective/Smell<span>.</span></a></div>
+						</div>
+						<div class="col-xs-10 text-right menu-1">
+							<ul>
+								<li><img src="images/uniandeslogo.png" width="40" height="40"></li>
+								<li><a href="index.html">Inicio</a></li>
+								<li class="active"><a href="funcionamiento.html">Funcionamiento</a></li>								
+								<li class="has-dropdown">
+									<a href="reglas.html">Reglas</a>
+									<ul class="dropdown">
+										<li><a href="reglas.html#springboot">SpringBoot</a></li>
+										<li><a href="reglas.html#nest">NestJS</a></li>
+										<li><a href="reglas.html#angular">Angular</a></li>
+									</ul>
+								</li>							
+							</ul>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</nav>
+
+	<div id="fh5co-contact">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>¿Qué hace el proyecto?</h2>
+					<p style="text-align: justify;">DetectiveSmell analiza minuciosamente el código de tu proyecto en busca de errores comunes 
+					y áreas de mejora. Utilizando tecnologías avanzadas como ANTLR4, ts-morph y java-ast, 
+					esta extensión identifica "code-smell" en etiquetas de frameworks antes de la ejecución del programa,
+					ayudando a mejorar la calidad del código y la eficiencia del desarrollo. 
+					Con soporte para múltiples frameworks y reglas personalizables, DetectiveSmell se integra directamente
+					en Visual Studio Code, proporcionando mensajes de error claros y concisos que indican la ubicación del error
+					y cómo corregirlo. Además, categoriza los errores detectados según su gravedad y 
+					la capa a la que pertenecen, permitiendo a los desarrolladores priorizar y planificar sus esfuerzos de 
+					refactorización de manera efectiva.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="fh5co-started">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row animate-box">
+				<h1 style="text-align: center;">¿Cómo funciona?</h1>
+				<div class="col-md-5 text-center fh5co-heading">
+					<h2>Visual Studio Code</h2>
+					<ul class="list-group list-group-flush fh5co-heading" style="text-align: justify;">
+						<li class="list-group-item">Para empezar, al hacer click derecho en el 
+							proyecto que se quiere analizar, aparecerá una serie de opciones del menú, en donde se debe
+							seleccionar el que dice "Analizar proyecto".<img src="images/analizarpro.png"> </li>
+						<li class="list-group-item">Una vez seleccionado el proyecto, se puede dirigir a "settings" para 
+							seleccionar el tipo de proyecto, las reglas y las capas que se desea analizar. <img src="images/configpro.png">
+							<img src="images/configpro2.png">
+						</li>
+						<li class="list-group-item">Una vez analizado el proyecto, la extensión arrojará un reporte en donde se describe
+							en que línea de código se encuentra el error, que regla esta rompiendo y el tipo de severidad.
+							<img src="images/reporte.png">
+						</li>
+					  </ul>
+				</div>
+				<div class="col-md-5 col-md-offset-2 text-center fh5co-heading">
+					<h2>API REST</h2>
+					<h3 style="text-decoration: solid; text-align: left;">Entrada (Tipo POST):</h3>
+					<ul class="list-group list-group-flush fh5co-heading" style="text-align: justify;">
+						<li class="list-group-item"> La API REST está implementada en Node.js, las solicitudes se realizan utilizando el método POST
+							y se accede a través del endpoint '/analize'.
+						</li>
+						<li class="list-group-item"> Se envía un JSON como cuerpo de la solicitud, que contiene los siguientes campos:
+							<div class="fh5co-team animate-box">
+								<pre>{
+	"url": "URL_GIT",
+	"token": "Token de autenticación",
+	"type": "Tipo de proyecto (spring, nest, angular)"
+}</pre>
+							</div>
+						</li>
+					</ul>
+					<h3 style="text-decoration: solid; text-align: left;">Salida (JSON reporte):</h3>
+					<ul class="list-group list-group-flush fh5co-heading" style="text-align: justify;">
+						<li class="list-group-item">La respuesta de la API es un JSON que contiene una capa con diferentes atributos 
+							dependiendo del tipo de proyecto analizado.</li>
+						<li class="list-group-item">
+							<h3 style="text-decoration: solid; text-align: left;">Para proyecto SpringBoot:</h3>
+							<ul style="list-style-type: disc; margin-left: 20px;">
+								<li><strong>Capa de persistencia:</strong> Información sobre errores relacionados con la
+									persistencia de datos.</li>
+								<li><strong>Capa de lógica:</strong> Información sobre errores en la lógica de negocio.</li>
+								<li><strong>Capa de controladores:</strong> Información sobre errores en los controladores.</li>
+							</ul>
+						</li>
+						<li class="list-group-item">
+							<h3 style="text-decoration: solid; text-align: left;">Para proyecto NestJS:</h3>
+							<ul style="list-style-type: disc; margin-left: 20px;">
+								<li><strong>Capa de persistencia:</strong> Información sobre errores relacionados con la
+									persistencia de datos.</li>
+								<li><strong>Capa de lógica:</strong> Información sobre errores en la lógica de negocio.</li>
+								<li><strong>Capa de controladores:</strong> Información sobre errores en los controladores.</li>
+								<li><strong>Capa de DTO:</strong> Información sobre errores en los objetos de transferencia de datos.</li>
+							</ul>
+						</li>
+						<li class="list-group-item">
+							<h3 style="text-decoration: solid; text-align: left;">Para proyecto Angular:</h3>
+							<ul style="list-style-type: disc; margin-left: 20px;">
+								<li><strong>Capa de infraestructura:</strong> Información sobre errores relacionados con la 
+									infraestructura del proyecto.</li>
+								<li><strong>Capa de módulos:</strong> Información sobre errores en los módulos del proyecto.</li>
+							</ul>
+						</li>
+						<li class="list-group-item">Dentro de cada capa, se presentan los siguientes atributos para 
+							describir los errores encontrados:
+							<div class="fh5co-team animate-box">
+<pre>
+{
+ "Capa de ": [
+		{
+			"message": "Indica en qué archivo se presentó el posible error.",
+			"severity": "La gravedad del error encontrado.",
+			"name": "El título del posible error.",
+			"id": "Identificador de la regla.",
+			"description": "Descripción del porqué es un error.",
+			"example": "Muestra cómo debería corregirse el error.",
+			"line": "El número de la línea de código donde se encuentra el error en el archivo.",
+			"path": "La ruta relativa del archivo con el error.",
+			"absolutePath": "La ruta completa del archivo con el error."
+		}
+	    ]
+}
+</pre>								
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer id="fh5co-footer" role="contentinfo">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-4 fh5co-widget">
+					<h4>DetectiveSmell</h4>
+					<p>El compañero perfecto para detectar errores en tu código.</p>
+				</div>
+				<div class="col-md-3 col-md-push-2 fh5co-widget">
+					<h4>Links</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="instalacion.html">Instalación</a></li>
+						<li><a href="reglas.html">Reglas</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-4 col-md-push-2 fh5co-widget">
+					<h4>Contact Information</h4>
+					<ul class="fh5co-footer-links">
+						<li>Universidad de los Andes <br> Cra 1a #18a-12</li>
+						<li><a href="tel://6013394949">(601) 339 4949</a></li>
+						<li><a href="https://uniandes.edu.co/">www.uniandes.edu.co</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+	</body>
+</html>
+

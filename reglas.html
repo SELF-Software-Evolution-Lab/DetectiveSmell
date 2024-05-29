@@ -1,0 +1,718 @@
+<!DOCTYPE HTML>
+<html>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DetectiveSmell</title>
+
+
+	<!-- <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">	 -->
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+		<nav class="fh5co-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-2">
+							<div id="fh5co-logo"><a href="index.html">Detective/Smell<span>.</span></a></div>
+						</div>
+						<div class="col-xs-10 text-right menu-1">
+							<ul>
+								<li><img src="images/uniandeslogo.png" width="40" height="40"></li>
+								<li><a href="index.html">Inicio</a></li>
+								<li><a href="funcionamiento.html">Funcionamiento</a></li>								
+								<li class="has-dropdown active">
+									<a href="reglas.html">Reglas</a>
+									<ul class="dropdown">
+										<li><a href="#springboot">SpringBoot</a></li>
+										<li><a href="#nest">NestJS</a></li>
+										<li><a href="#angular">Angular</a></li>
+									</ul>
+								</li>							
+							</ul>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</nav>
+
+	<div id="fh5co-about">
+		<div class="container">
+			<div class="row ">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Reglas</h2>
+					<p style="text-align: justify;">En DetectiveSmell, se ha identificado ciertas reglas que
+					se consideran fundamental para mantener la calidad del código en los tres frameworks admitidos: SpringBoot, Angular 
+					y NestJS. Estas reglas actúan como directrices esenciales para garantizar que el código desarrollado en estos entornos
+					no se convierta en un 'code smell'. Al respetar estas reglas, los desarrolladores pueden mejorar la legibilidad,
+					la escalabilidad y la mantenibilidad de su código, asegurando así un desarrollo más eficiente y una menor probabilidad de 
+					introducir defectos. Mantener la coherencia en la aplicación de estas reglas en todos los frameworks ayuda a establecer 
+					un estándar de calidad uniforme en todo el proyecto</p>
+					<p><a class="btn btn-primary btn-lg btn-demo" href="#springboot"></i>SpringBoot</a> <a class="btn btn-primary btn-lg btn-demo" href="#nest">NestJS</a> <a class="btn btn-primary btn-lg btn-demo" href="#angular"></i>Angular</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<section id = "springboot">
+	<div id="fh5co-features">
+		<div class="container">
+			<h1 style="text-align: center; margin-top: 10%;">Reglas SpringBoot</h1>
+			<div class="services-padding">
+				<div class="row" style="text-align: justify;">
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3>Todos los atributos de las entidades son objetos</h3>
+								<p>Esta regla asegura que todas las entidades sean objetos para permitir una mayor flexibilidad y 
+								escalabilidad en el código. Evita el uso de tipos primitivos que pueden limitar la funcionalidad.</p>
+								<div id="example1" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Entity<br> public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp;private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp;private String nombre; <br>}</p>
+								</div>
+								<div id="counterExample1" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@Entity<br> public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp;private <b>long id</b>; <br>&nbsp;&nbsp;&nbsp;&nbsp;private String nombre; <br>}</p>
+								</div>
+								<a id="button1" class="btn btn-primary2" onclick="toggleExample(1)">Ver error</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3>Todas las entidades tienen la anotación <i>@Data</i></h3>
+								<p>La anotación <i>@Data</i> de Lombok genera automáticamente getters, 
+									setters, equals, hashCode y toString. Esto ayuda a reducir el boilerplate en las entidades.</p>
+								<div id="example2" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Data <br>@Entity <br>public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp; private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp; private String nombre; <br>}</p>
+								</div>
+								<div id="counterExample2" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@Entity<br> public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp;private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp;private String nombre; <br>}</p>
+								</div>
+								<a id="button2" class="btn btn-primary2" onclick="toggleExample(2)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3>Todas las clases de lógica tienen la anotación <i>@Service</i></h3>
+								<p>La anotación <i>@Service</i> se utiliza en la capa de servicio donde se escribe la lógica de negocio.
+									Esto ayuda a la inyección de dependencias y a la transaccionalidad.</p>
+								<div id="example3" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Service<br> public class UsuarioService { <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<div id="counterExample3" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>public class UsuarioService { <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<a id="button3" class="btn btn-primary2" onclick="toggleExample(3)">Ver error</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Todos los atributos de las clases de lógica tienen la anotación <i>@Autowired</i></h3>
+								<p style="text-align: justify;">La anotación <i>@Autowired</i> se utiliza para la inyección automática de dependencias. 
+									Esto asegura que las clases estén correctamente ensambladas con sus dependencias.</p>
+								<div id="example4" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Service<br> public class UsuarioService { <br>&nbsp;&nbsp;&nbsp;&nbsp; @Autowired <br>&nbsp;&nbsp;&nbsp;&nbsp; private UsuarioRepository usuarioRepository;<br> &nbsp;&nbsp;&nbsp;&nbsp;... <br>}</p>
+								</div>
+								<div id="counterExample4" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@Service<br> public class UsuarioService {<br>&nbsp;&nbsp;&nbsp;&nbsp; private UsuarioRepository usuarioRepository;<br> &nbsp;&nbsp;&nbsp;&nbsp;... <br>}</p>
+								</div>
+								<a id="button4" class="btn btn-primary2" onclick="toggleExample(4)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Todas las clases de controladores tienen la anotación <i>@Controller</i></h3>
+								<p style="text-align: justify;">La anotación <i>@Controller</i> se utiliza en las clases que actúan como controlador en el patrón MVC. 
+									Esto permite que Spring reconozca la clase como parte de la capa de controladores.</p>
+								<div id="example5" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Controller<br> public class UsuarioController { <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<div id="counterExample5" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p> public class UsuarioController { <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<a id="button5" class="btn btn-primary2" onclick="toggleExample(5)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Todas las clases de controladores tienen la anotación <i>@RequestMapping</i></h3>
+								<p style="text-align: justify;">La anotación <i>@RequestMapping</i> se utiliza para mapear las solicitudes web a métodos de manejo de controladores. 
+									Esto proporciona un mapeo fácil de las URL a los métodos de controlador.</p>
+								<div id="example6" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Controller<br> @RequestMapping("/usuarios")<br> public class UsuarioController {<br> &nbsp;&nbsp;&nbsp;&nbsp;... <br>}</p>
+								</div>
+								<div id="counterExample6" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@Controller<br> public class UsuarioController {<br> &nbsp;&nbsp;&nbsp;&nbsp;... <br>}</p>
+								</div>
+								<a id="button6" class="btn btn-primary2" onclick="toggleExample(6)">Ver error</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Todos los atributos de las clases de controladores tienen la anotación <i>@Autowired</i></h3>
+								<p style="text-align: justify;">La anotación <i>@Autowired</i> se utiliza para la inyección automática de dependencias en la capa de controladores. 
+									Esto asegura que las clases estén correctamente ensambladas con sus dependencias.</p>
+								<div id="example7" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Controller<br> public class UsuarioController { <br>&nbsp;&nbsp;&nbsp;&nbsp; @Autowired <br>&nbsp;&nbsp;&nbsp;&nbsp; private UsuarioService usuarioService; <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<div id="counterExample7" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@Controller<br> public class UsuarioController { <br>&nbsp;&nbsp;&nbsp;&nbsp; private UsuarioService usuarioService; <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<a id="button7" class="btn btn-primary2" onclick="toggleExample(7)">Ver error</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Todas las clases DTO y DetailDTO tienen la anotación <i>@Data</i></h3>
+								<p style="text-align: justify;">La anotación <i>@Data</i> se utiliza en las clases DTO para
+									generar automáticamente getters, setters, equals, hashCode y toString. 
+									Esto ayuda a reducir el boilerplate en las clases DTO.</p>
+								<div id="example8" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Data<br> public class UsuarioDTO { <br>&nbsp;&nbsp;&nbsp;&nbsp; private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp; private String nombre; <br>}</p>
+								</div>
+								<div id="counterExample8" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>public class UsuarioDTO { <br>&nbsp;&nbsp;&nbsp;&nbsp; private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp; private String nombre; <br>}</p>
+								</div>
+								<a id="button8" class="btn btn-primary2" onclick="toggleExample(8)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Todos los atributos de la clase son serializables</h3>
+								<p style="text-align: justify;">Esta regla asegura que todas las clases sean serializables para permitir la transferencia de objetos 
+								a través de la red o el almacenamiento en archivos. Esto es útil para la persistencia y la comunicación
+								entre sistemas.</p>
+								<div id="example9" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp; private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp; private String nombre; <br>}</p>
+								</div>
+								<div id="counterExample9" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp; private <b>long</b> id; <br>&nbsp;&nbsp;&nbsp;&nbsp; private <b>string </b> nombre; <br>}</p>
+								</div>
+								<a id="button9" class="btn btn-primary2" onclick="toggleExample(9)">Ver error</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+					</div>
+
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Todos los métodos de tipo GET deben retornar atributos de tipo DetailDTO</i></h3>
+								<p style="text-align: justify;">Esta regla asegura que los métodos de tipo GET retornen atributos de tipo DetailDTO para 
+									evitar la exposición de información sensible o redundante. Esto ayuda a mantener una arquitectura limpia y coherente.</p>
+								<div id="example10" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@GetMapping("/usuarios/{id}")<br> public DetailDTO getUsuario(@PathVariable Long id) { <br>&nbsp;&nbsp;&nbsp;&nbsp; Usuario usuario = usuarioService.findById(id); <br>&nbsp;&nbsp;&nbsp;&nbsp; return new DetailDTO(usuario); <br>}</p>
+								</div>
+								<div id="counterExample10" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@GetMapping("/usuarios/{id}")<br> public DetailDTO getUsuario(@PathVariable Long id) { <br>&nbsp;&nbsp;&nbsp;&nbsp; Usuario usuario = usuarioService.findById(id); <br>&nbsp;&nbsp;&nbsp;&nbsp; return usuario; <br>}</p>
+								</div>
+								<a id="button10" class="btn btn-primary2" onclick="toggleExample(10)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="nest">
+	<div id="fh5co-features2">
+		<div class="container">
+			<h1 style="text-align: center; margin-top: 10%;">Reglas NestJS</h1>
+			<div class="services-padding">
+				<div class="row">
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Atributos primitivos</h3>
+								<p style="text-align: justify;">Todos los atributos de las entidades son objetos (no primitivos). 
+									Por ejemplo, se usa Integer en lugar de int o se usa Float en lugar de float</p>
+								<div id="example21" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Entity<br> public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp;private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp;private String nombre; <br>}</p>
+								</div>
+								<div id="counterExample21" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@Entity<br> public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp;private <b>long id</b>; <br>&nbsp;&nbsp;&nbsp;&nbsp;private String nombre; <br>}</p>
+								</div>
+								<a id="button21" class="btn btn-primary2" onclick="toggleExample(21)">Ver error</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Anotacion en la clase Entity</h3>
+								<p style="text-align: justify;">La anotación <i>@Data</i> de Lombok genera automáticamente getters, 
+									setters, equals, hashCode y toString. Esto ayuda a reducir el boilerplate en las entidades.</p>
+								<div id="example22" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Data <br>@Entity <br>public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp; private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp; private String nombre; <br>}</p>
+								</div>
+								<div id="counterExample22" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@Entity<br> public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp;private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp;private String nombre; <br>}</p>
+								</div>
+								<a id="button22" class="btn btn-primary2" onclick="toggleExample(22)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Anotacion en la clase Service</h3>
+								<p style="text-align: justify;">La anotación <i>@Service</i> se utiliza en la capa de servicio donde se escribe la lógica de negocio.
+									Esto ayuda a la inyección de dependencias y a la transaccionalidad.</p>
+								<div id="example23" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Service<br> public class UsuarioService { <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<div id="counterExample23" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>public class UsuarioService { <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<a id="button23" class="btn btn-primary2" onclick="toggleExample(23)">Ver error</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Anotacion en los atributos de las clases de la lógica</h3>
+								<p style="text-align: justify;">La anotación <i>@Autowired</i> se utiliza para la inyección automática de dependencias. 
+									Esto asegura que las clases estén correctamente ensambladas con sus dependencias.</p>
+								<div id="example24" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Service<br> public class UsuarioService { <br>&nbsp;&nbsp;&nbsp;&nbsp; @Autowired <br>&nbsp;&nbsp;&nbsp;&nbsp; private UsuarioRepository usuarioRepository;<br> &nbsp;&nbsp;&nbsp;&nbsp;... <br>}</p>
+								</div>
+								<div id="counterExample24" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@Service<br> public class UsuarioService {<br>&nbsp;&nbsp;&nbsp;&nbsp; private UsuarioRepository usuarioRepository;<br> &nbsp;&nbsp;&nbsp;&nbsp;... <br>}</p>
+								</div>
+								<a id="button24" class="btn btn-primary2" onclick="toggleExample(24)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Todas las clases de controladores tienen la anotación <i>@Controller</i></h3>
+								<p style="text-align: justify;">La anotación <i>@Controller</i> se utiliza en las clases que actúan como controlador en el patrón MVC. 
+									Esto permite que Spring reconozca la clase como parte de la capa de controladores.</p>
+								<div id="example25" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Controller<br> public class UsuarioController { <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<div id="counterExample25" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p> public class UsuarioController { <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<a id="button25" class="btn btn-primary2" onclick="toggleExample(25)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Anotacion de RequestMapping en la clase Controller</h3>
+								<p style="text-align: justify;">La anotación <i>@RequestMapping</i> se utiliza para mapear las solicitudes web a métodos de manejo de controladores. 
+									Esto proporciona un mapeo fácil de las URL a los métodos de controlador.</p>
+								<div id="example26" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Controller<br> @RequestMapping("/usuarios")<br> public class UsuarioController {<br> &nbsp;&nbsp;&nbsp;&nbsp;... <br>}</p>
+								</div>
+								<div id="counterExample26" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@Controller<br> public class UsuarioController {<br> &nbsp;&nbsp;&nbsp;&nbsp;... <br>}</p>
+								</div>
+								<a id="button26" class="btn btn-primary2" onclick="toggleExample(26)">Ver error</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Anotacion en los atributos de las clases de los controladores</h3>
+								<p style="text-align: justify;">La anotación <i>@Autowired</i> se utiliza para la inyección automática de dependencias en la capa de controladores. 
+									Esto asegura que las clases estén correctamente ensambladas con sus dependencias.</p>
+								<div id="example27" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Controller<br> public class UsuarioController { <br>&nbsp;&nbsp;&nbsp;&nbsp; @Autowired <br>&nbsp;&nbsp;&nbsp;&nbsp; private UsuarioService usuarioService; <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<div id="counterExample27" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@Controller<br> public class UsuarioController { <br>&nbsp;&nbsp;&nbsp;&nbsp; private UsuarioService usuarioService; <br>&nbsp;&nbsp;&nbsp;&nbsp;...<br> }</p>
+								</div>
+								<a id="button27" class="btn btn-primary2" onclick="toggleExample(27)">Ver error</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Anotacion de data en DTO y DetailDTO</h3>
+								<p style="text-align: justify;">La anotación <i>@Data</i> se utiliza en las clases DTO para
+									generar automáticamente getters, setters, equals, hashCode y toString. 
+									Esto ayuda a reducir el boilerplate en las clases DTO.</p>
+								<div id="example28" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@Data<br> public class UsuarioDTO { <br>&nbsp;&nbsp;&nbsp;&nbsp; private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp; private String nombre; <br>}</p>
+								</div>
+								<div id="counterExample28" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>public class UsuarioDTO { <br>&nbsp;&nbsp;&nbsp;&nbsp; private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp; private String nombre; <br>}</p>
+								</div>
+								<a id="button28" class="btn btn-primary2" onclick="toggleExample(28)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Tipo de atributos en las clases DTO y DetailDTO</h3>
+								<p style="text-align: justify;">Esta regla asegura que todas las clases sean serializables para permitir la transferencia de objetos 
+								a través de la red o el almacenamiento en archivos. Esto es útil para la persistencia y la comunicación
+								entre sistemas.</p>
+								<div id="example29" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp; private Long id; <br>&nbsp;&nbsp;&nbsp;&nbsp; private String nombre; <br>}</p>
+								</div>
+								<div id="counterExample29" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>public class Usuario { <br>&nbsp;&nbsp;&nbsp;&nbsp; private <b>long</b> id; <br>&nbsp;&nbsp;&nbsp;&nbsp; private <b>string </b> nombre; <br>}</p>
+								</div>
+								<a id="button29" class="btn btn-primary2" onclick="toggleExample(29)">Ver error</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+					</div>
+
+					<div class="col-md-4 ">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Retorno tipo GET en controladores</h3>
+								<p style="text-align: justify;">Esta regla asegura que los métodos de tipo GET retornen atributos de tipo DetailDTO para 
+									evitar la exposición de información sensible o redundante. Esto ayuda a mantener una arquitectura limpia y coherente.</p>
+								<div id="example20" class="fh5co-team ">
+									<h4>Ejemplo:</h4>
+									<p>@GetMapping("/usuarios/{id}")<br> public DetailDTO getUsuario(@PathVariable Long id) { <br>&nbsp;&nbsp;&nbsp;&nbsp; Usuario usuario = usuarioService.findById(id); <br>&nbsp;&nbsp;&nbsp;&nbsp; return new DetailDTO(usuario); <br>}</p>
+								</div>
+								<div id="counterExample20" style="display:none;" class="fh5co-team ">
+									<h4>Error:</h4>
+									<p>@GetMapping("/usuarios/{id}")<br> public DetailDTO getUsuario(@PathVariable Long id) { <br>&nbsp;&nbsp;&nbsp;&nbsp; Usuario usuario = usuarioService.findById(id); <br>&nbsp;&nbsp;&nbsp;&nbsp; return usuario; <br>}</p>
+								</div>
+								<a id="button20" class="btn btn-primary2" onclick="toggleExample(20)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="angular">	
+	<div id="fh5co-features3">
+		<div class="container">
+			<h1 style="text-align: center; margin-top: 10%;">Reglas Angular</h1>
+			<div class="services-padding">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">No debería haber servicios ni componentes a nivel de la carpeta 'app' que no sean los propios de 'app'</h3>
+								<p style="text-align: justify;">Se establece como buena práctica mantener la carpeta 'app' exclusivamente para los archivos 
+								que pertenecen directamente a la lógica y la interfaz de usuario de la aplicación.
+								Siguiendo esta convención, se promueve una estructura organizada y mantenible 
+								que facilita la comprensión y el mantenimiento del código.</p>
+								<div id="example31" class="fh5co-team">
+									<h4>Ejemplo:</h4>
+									<p>Carpeta: App <br>&nbsp;Archivos: app.component.ts</p>
+								</div>
+								<div id="counterExample31" style="display:none;" class="fh5co-team">
+									<h4>Error:</h4>
+									<p>Carpeta: App <br>&nbsp;Archivo: <b>user.component.ts</b></p>
+								</div>
+								<a id="button31" class="btn btn-primary3" onclick="toggleExample(31)">Ver error</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Los nombres de las carpetas (módulos) deben coincidir con sus archivos</i></h3>
+								<p style="text-align: justify;">Se recomienda que los nombres de las carpetas que actúan como módulos coincidan exactamente 
+								con los nombres de sus archivos correspondientes. Esta práctica promueve la legibilidad, 
+								la comprensión y la coherencia en el código, facilitando la navegación y el mantenimiento del proyecto.</p>
+								<div id="example32" class="fh5co-team">
+									<h4>Ejemplo:</h4>
+									<p>Carpeta: User <br>&nbsp;Archivos: user.ts</p>
+								</div>
+								<div id="counterExample32" style="display:none;" class="fh5co-team">
+									<h4>Error:</h4>
+									<p>Carpeta: User <br>&nbsp;Archivos: <b>client.ts</b></p>
+								</div>
+								<a id="button32" class="btn btn-primary3" onclick="toggleExample(32)">Ver error</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-warning"></i>
+							</span>
+							<div class="feature-copy">
+								<h3 style="text-align: justify;">Los nombres de los módulos deben estar en singular</h3>
+								<p style="text-align: justify;">Esta práctica asegura una coherencia uniforme en toda la estructura del proyecto, lo que simplifica
+								la comprensión y la mantenibilidad del código. Al mantener los nombres de los módulos en singular, se evitan ambigüedades
+								y se facilita la identificación clara de cada componente de la aplicación.</p>
+								<div id="example33" class="fh5co-team">
+									<h4>Ejemplo:</h4>
+									<p>Modulo: clase.module.ts</p>
+								</div>
+								<div id="counterExample33" style="display:none;" class="fh5co-team">
+									<h4>Error:</h4>
+									<p>Modulo: <b>clases.module.ts</b></p>
+								</div>
+								<a id="button33" class="btn btn-primary3" onclick="toggleExample(33)">Ver error</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<footer id="fh5co-footer" role="contentinfo">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-4 fh5co-widget">
+					<h4>DetectiveSmell</h4>
+					<p>El compañero perfecto para detectar errores en tu código.</p>
+				</div>
+				<div class="col-md-3 col-md-push-2 fh5co-widget">
+					<h4>Links</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="instalacion.html">Instalación</a></li>
+						<li><a href="reglas.html">Reglas</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-4 col-md-push-2 fh5co-widget">
+					<h4>Contact Information</h4>
+					<ul class="fh5co-footer-links">
+						<li>Universidad de los Andes <br> Cra 1a #18a-12</li>
+						<li><a href="tel://6013394949">(601) 339 4949</a></li>
+						<li><a href="https://uniandes.edu.co/">www.uniandes.edu.co</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+	<script>
+		function toggleExample(exampleId) {
+			event.preventDefault();
+			
+			var example = document.getElementById("example" + exampleId);
+			var counterExample = document.getElementById("counterExample" + exampleId);
+			var button = document.getElementById("button" + exampleId);
+	
+			if (example.style.display === "none") {
+				example.style.display = "block";
+				counterExample.style.display = "none";
+				button.innerHTML = "Ver error";
+			} else {
+				example.style.display = "none";
+				counterExample.style.display = "block";
+				button.innerHTML = "Ver ejemplo";
+			}
+		}
+	</script>
+	
+
+	</body>
+</html>
+
